@@ -16,6 +16,7 @@ public class GameSet {
         return questions[indexQuestion].getReponse(indexReponse);
     }
 
+
     public GameSet(){
         Question question1 = new Question("___ libro es interesante. (Le livre est intéressant)",
                 new Reponse("Mi", false),
@@ -23,7 +24,7 @@ public class GameSet {
                 new Reponse("El", true),
                 new Reponse("Tu", false));
 
-        Question question2 = new Question("Voy a ___ al parque mañana.(Je vais visiter le parc demain)",
+        Question question2 = new Question("Voy a ___ al parque mañana. (Je vais visiter le parc demain)",
                 new Reponse("Jugar", false),
                 new Reponse("Comer", false),
                 new Reponse("Correr", false),

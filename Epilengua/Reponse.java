@@ -8,6 +8,10 @@ public class Reponse {
         this.texte = texte;
     }
 
+    public boolean getCorrect(){
+        return correcte;
+    }
+
     public String getTexte() {
         return texte;
     }

@@ -1,6 +1,7 @@
 package Epilengua;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,16 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
 
     private static int compteur = 1;
 
+    private int numeroQuestion;
+
+    private boolean bonneReponse = false;
+
+    private static int score = 0;
+
+    private static int nbFails = 0;
+
+    private static int compteurQuestions;
+
     private JPanel mainPanel = new JPanel();
     public MainFrameGame(){
         mainFrame = new TemplateFrames("Epilengua - The game", mainPanel);
@@ -29,6 +40,9 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
 
         //Todo : dans panelQuestion, ajouter GameSet.Question[i] : une question dans chaque questionPanel de chaque Frame.
 
+        //Céation de la question :
+        JLabel questionLabel = new JLabel();
+
         //Création des 4 boutons de réponse :
         bouton1 = new JButton();
         bouton1.addActionListener(this);
@@ -40,12 +54,19 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
         bouton4.addActionListener(this);
 
         for (int i = 0; i < compteur && compteur <=5; i++){
+            questionLabel.setText(GameSet.questions[i].getQuestion());
             bouton1.setText(GameSet.getReponse(i, 0).getTexte());
             bouton2.setText(GameSet.getReponse(i, 1).getTexte());
             bouton3.setText(GameSet.getReponse(i, 2).getTexte());
             bouton4.setText(GameSet.getReponse(i, 3).getTexte());
+            numeroQuestion = i;
         }
         compteur++;
+
+        questionLabel.setBorder(new EmptyBorder(30, 20, 0, 0));
+        questionLabel.setForeground(Color.WHITE);
+        questionLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        panelQuestion.add(questionLabel);
 
         bouton1.setBounds(140, 230, 250, 90);
         bouton2.setBounds(510, 230, 250, 90);
@@ -59,9 +80,40 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() instanceof AbstractButton) {
+            AbstractButton sourceButton = (AbstractButton) e.getSource();
+            String buttonText = sourceButton.getText();
+
+            for (int i = 0; i < 4; i++){
+                if(buttonText.equals(GameSet.questions[numeroQuestion].getReponse(i).getTexte())){
+                    bonneReponse = GameSet.questions[numeroQuestion].getReponse(i).getCorrect();
+                }
+            }
+        }
+
         mainFrame.dispose();
-        mainFrame = new MainFrameGame();
         //Todo : faire un if sur la Réponse récupérée pour savoir si elle est bonne ou pas et adapter la JOptionPane !
-        JOptionPane.showMessageDialog(mainFrame,"GG ez noob", "Votre réponse :", INFORMATION_MESSAGE);
+        if(bonneReponse){
+            JOptionPane.showMessageDialog(mainFrame,"Excellent travail ! Maintenant essayez la question suivante !", "Bien joué !", INFORMATION_MESSAGE);
+            score ++;
+            System.out.println(numeroQuestion);
+            if(numeroQuestion == 4){
+                FinalFrame finalFrame = new FinalFrame();
+                return;
+            }
+            mainFrame = new MainFrameGame();
+        } else {
+            JOptionPane.showMessageDialog(mainFrame,"Oups, mauvaise réponse... Veuillez réessayer", "Oups :(", INFORMATION_MESSAGE);
+            if(nbFails == 0){
+                score --;
+                nbFails++;
+            }
+            compteur--;
+            mainFrame = new MainFrameGame();
+        }
+
+        System.out.println("compteur " + compteur);
+
     }
 }
+//todo faire uatre compteur et comparer avec taille du tab . length
