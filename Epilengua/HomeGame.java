@@ -44,7 +44,7 @@ public class HomeGame extends TemplateFrames implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == startButton){
             homeFrame.dispose();
-            //TODO : ouvrir une frame principale du jeu !
+            MainFrameGame mainFrameGame = new MainFrameGame();
         }
     }
 }
