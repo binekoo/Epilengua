@@ -3,8 +3,8 @@ package Epilengua;
 public class GameSet {
     private Question[] questions;
 
-    public GameSet(){
-        
+    public GameSet(Question... question) {
+        this.questions = question;
     }
 
 }
