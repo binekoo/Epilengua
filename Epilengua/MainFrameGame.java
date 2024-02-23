@@ -2,8 +2,12 @@ package Epilengua;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MainFrameGame extends TemplateFrames{
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+
+public class MainFrameGame extends TemplateFrames implements ActionListener {
     private TemplateFrames mainFrame;
 
     private JButton bouton1;
@@ -25,9 +29,13 @@ public class MainFrameGame extends TemplateFrames{
 
         //Création des 4 boutons de réponse :
         bouton1 = new JButton();
+        bouton1.addActionListener(this);
         bouton2 = new JButton();
+        bouton2.addActionListener(this);
         bouton3 = new JButton();
+        bouton3.addActionListener(this);
         bouton4 = new JButton();
+        bouton4.addActionListener(this);
 
         bouton1.setBounds(140, 230, 250, 90);
         bouton2.setBounds(510, 230, 250, 90);
@@ -37,5 +45,13 @@ public class MainFrameGame extends TemplateFrames{
         mainPanel.add(bouton2);
         mainPanel.add(bouton3);
         mainPanel.add(bouton4);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        mainFrame.dispose();
+        mainFrame = new MainFrameGame();
+        //Todo : faire un if sur la Réponse récupérée pour savoir si elle est bonne ou pas et adapter la JOptionPane !
+        JOptionPane.showMessageDialog(mainFrame,"GG ez noob", "Votre réponse :", INFORMATION_MESSAGE);
     }
 }
