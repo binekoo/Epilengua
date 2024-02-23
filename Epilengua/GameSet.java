@@ -6,5 +6,4 @@ public class GameSet {
     public GameSet(Question... question) {
         this.questions = question;
     }
-
 }
