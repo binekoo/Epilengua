@@ -17,6 +17,10 @@ public class Question {
         this.reponses[3] = reponse4;
     }
 
+    public Reponse getReponse(int index) {
+        return reponses[index];
+    }
+
     public void setReponse(){
 
     }
@@ -27,5 +31,19 @@ public class Question {
 
     public Question(String question){
         this.question = question;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(question).append("\n");
+
+        char option = 'a';
+        for (Reponse reponse : reponses) {
+            result.append(option).append(") ").append(reponse.getTexte()).append("\n");
+            option++;
+        }
+
+        return result.toString();
     }
 }

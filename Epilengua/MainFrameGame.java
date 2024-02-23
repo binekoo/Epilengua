@@ -15,6 +15,8 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
     private JButton bouton3;
     private JButton bouton4;
 
+    private static int compteur = 1;
+
     private JPanel mainPanel = new JPanel();
     public MainFrameGame(){
         mainFrame = new TemplateFrames("Epilengua - The game", mainPanel);
@@ -36,6 +38,14 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
         bouton3.addActionListener(this);
         bouton4 = new JButton();
         bouton4.addActionListener(this);
+
+        for (int i = 0; i < compteur && compteur <=5; i++){
+            bouton1.setText(GameSet.getReponse(i, 0).getTexte());
+            bouton2.setText(GameSet.getReponse(i, 1).getTexte());
+            bouton3.setText(GameSet.getReponse(i, 2).getTexte());
+            bouton4.setText(GameSet.getReponse(i, 3).getTexte());
+        }
+        compteur++;
 
         bouton1.setBounds(140, 230, 250, 90);
         bouton2.setBounds(510, 230, 250, 90);
