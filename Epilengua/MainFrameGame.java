@@ -6,8 +6,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
-
 public class MainFrameGame extends TemplateFrames implements ActionListener {
     private TemplateFrames mainFrame;
 
@@ -16,6 +14,8 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
     private JButton bouton3;
     private JButton bouton4;
     private int choix;
+
+    private int choix2;
 
     private static int compteur = 1;
 
@@ -90,31 +90,35 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
             }
         }
 
-        mainFrame.dispose();
         //Todo : faire un if sur la Réponse récupérée pour savoir si elle est bonne ou pas et adapter la JOptionPane !
         if(bonneReponse){
             if(!erreur){
                 score++;
             }
-            JOptionPane.showMessageDialog(mainFrame,"Excellent travail ! Maintenant essayez la question suivante !", "Bien joué !", INFORMATION_MESSAGE);
-            if(numeroQuestion == 4){
-                FinalFrame finalFrame = new FinalFrame();
-                return;
-            }
-            mainFrame = new MainFrameGame();
+            choix = JOptionPane.showConfirmDialog(mainFrame,"Excellent travail ! Maintenant essayez la question suivante !", "Bien joué !", JOptionPane.OK_CANCEL_OPTION);
+
+                if(choix == JOptionPane.OK_OPTION) {
+                    if(numeroQuestion == 4){
+                    mainFrame.dispose();
+                    FinalFrame finalFrame = new FinalFrame();
+                    return;
+                    } else {
+                        mainFrame.dispose();
+                        mainFrame = new MainFrameGame();
+                    }
+                }
         } else {
-            JOptionPane.showMessageDialog(mainFrame,"Oups, mauvaise réponse... Veuillez réessayer", "Oups :(", INFORMATION_MESSAGE);
+            choix2 = JOptionPane.showConfirmDialog(mainFrame,"Oups, mauvaise réponse... Veuillez réessayer", "Oups :(", JOptionPane.OK_CANCEL_OPTION);
             compteur--;
             erreur = true;
             if(choix == JOptionPane.OK_OPTION){
-                dispose();
+                mainFrame.dispose();
                 mainFrame = new MainFrameGame();
             }
 
         }
 
         //TODO : ajouter le calcul du score
-        //TODO : regler problemes des JOptionPane qui s'affichent seule (voir quelle valeur donner à la variable choix
         //TODO : ajouter les icones aux JOptionPanes
         System.out.println("score " + score);
 
