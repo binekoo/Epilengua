@@ -7,6 +7,8 @@ public class Question {
 
     private String correcton;
 
+    //Todo : ajouter attribut "explication" puis les ajouter aux JOptionPanes
+
     public Question(String question, Reponse reponse1, Reponse reponse2, Reponse reponse3, Reponse reponse4) {
         this.question = question;
 

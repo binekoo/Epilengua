@@ -10,6 +10,8 @@ public class FinalFrame extends TemplateFrames{
 
     public FinalFrame(){
         finalFrame = new TemplateFrames("Epilengua - Your score", mainPanel);
+
+        //TODO : ajouter un JPanel avec la couleur secondaire pour le score
         //JPanel lastPanel = new JPanel();
 
     }

@@ -15,6 +15,7 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
     private JButton bouton2;
     private JButton bouton3;
     private JButton bouton4;
+    private int choix;
 
     private static int compteur = 1;
 
@@ -24,9 +25,7 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
 
     private static int score = 0;
 
-    private static int nbFails = 0;
-
-    private static int compteurQuestions;
+    private boolean erreur = false;
 
     private JPanel mainPanel = new JPanel();
     public MainFrameGame(){
@@ -35,7 +34,7 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
 
         JPanel panelQuestion = new JPanel();
         panelQuestion.setBackground(Color.decode(getSecondaryColor()));
-        panelQuestion.setBounds(100, 80, 700, 100);
+        panelQuestion.setBounds(90, 80, 720, 100);
         mainPanel.add(panelQuestion);
 
         //Todo : dans panelQuestion, ajouter GameSet.Question[i] : une question dans chaque questionPanel de chaque Frame.
@@ -94,9 +93,10 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
         mainFrame.dispose();
         //Todo : faire un if sur la Réponse récupérée pour savoir si elle est bonne ou pas et adapter la JOptionPane !
         if(bonneReponse){
+            if(!erreur){
+                score++;
+            }
             JOptionPane.showMessageDialog(mainFrame,"Excellent travail ! Maintenant essayez la question suivante !", "Bien joué !", INFORMATION_MESSAGE);
-            score ++;
-            System.out.println(numeroQuestion);
             if(numeroQuestion == 4){
                 FinalFrame finalFrame = new FinalFrame();
                 return;
@@ -104,16 +104,19 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
             mainFrame = new MainFrameGame();
         } else {
             JOptionPane.showMessageDialog(mainFrame,"Oups, mauvaise réponse... Veuillez réessayer", "Oups :(", INFORMATION_MESSAGE);
-            if(nbFails == 0){
-                score --;
-                nbFails++;
-            }
             compteur--;
-            mainFrame = new MainFrameGame();
+            erreur = true;
+            if(choix == JOptionPane.OK_OPTION){
+                dispose();
+                mainFrame = new MainFrameGame();
+            }
+
         }
 
-        System.out.println("compteur " + compteur);
+        //TODO : ajouter le calcul du score
+        //TODO : regler problemes des JOptionPane qui s'affichent seule (voir quelle valeur donner à la variable choix
+        //TODO : ajouter les icones aux JOptionPanes
+        System.out.println("score " + score);
 
     }
 }
-//todo faire uatre compteur et comparer avec taille du tab . length
