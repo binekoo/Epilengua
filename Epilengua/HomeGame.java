@@ -22,6 +22,13 @@ public class HomeGame extends TemplateFrames implements ActionListener{
         //Ajout des spécificités du panel Home :
         mainPanel.setLayout(null);
 
+        //TODO : ajouter logo
+
+//        ImageIcon logo = new ImageIcon("/ressources/hola.png");
+//        JLabel logoLabel = new JLabel(logo);
+//        logoLabel.setBounds(10,8,70,70);
+//        mainPanel.add(logoLabel);
+
         JPanel titlePanel = new RoundedPanel(50, 50);
         titlePanel.setBounds(100, 80, 700, 100);
         titlePanel.setBackground(Color.decode(getSecondaryColor()));
@@ -29,7 +36,7 @@ public class HomeGame extends TemplateFrames implements ActionListener{
         titleLabel = new JLabel(title);
         titleLabel.setBounds(170, 40, 350, 30);
         titleLabel.setForeground(Color.WHITE);
-        titleLabel.setFont(new Font("Avenir", Font.BOLD, 26));
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 26));
         titlePanel.add(titleLabel);
         mainPanel.add(titlePanel);
 
