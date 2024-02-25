@@ -23,7 +23,7 @@ public class GameSet {
                 new Reponse("Su", false),
                 new Reponse("El", true),
                 new Reponse("Nuestro", false),
-                "En espagnol, \"gato\" est masculin, donc on utilise l'article masculin \"el\". Donc la phrase correcte est \"El gato es muy lindo\" qui signifie \"Le chat est très mignon\"."
+                "<html>En espagnol, \"gato\" est masculin, donc on utilise l'article masculin \"el\".<br>Donc la phrase correcte est \"El gato es muy lindo\" qui signifie \"Le chat est très mignon\".</html>"
         );
 
         Question question2 = new Question("____ libros son interesantes. (Les livres sont intéressants)",
@@ -31,7 +31,7 @@ public class GameSet {
                 new Reponse("Tus", false),
                 new Reponse("Sus", false),
                 new Reponse("Mis", true),
-                "\"Libros\" est masculin pluriel, donc on utilise \"mis\" qui est l'adjectif possessif pour \"mes\" livres. Donc la phrase complète est \"Mis libros son interesantes\" qui signifie \"Mes livres sont intéressants\"."
+                "<html>\"Libros\" est masculin pluriel, donc on utilise \"mis\" qui est l'adjectif possessif pour \"mes\" livres.<br>Donc la phrase complète est \"Mis libros son interesantes\" qui signifie \"Mes livres sont intéressants\".</html>"
         );
 
         Question question3 = new Question("Mi hermana ____ bailar salsa. (Ma soeur aime danser la salsa)",
@@ -39,7 +39,7 @@ public class GameSet {
                 new Reponse("Quiero", false),
                 new Reponse("Baila", true),
                 new Reponse("Come", false),
-                "\"Baila\" signifie \"danse\" en espagnol. Donc la phrase complète est \"Mi hermana baila salsa\" qui signifie \"Ma soeur danse la salsa\"."
+                "<html>\"Baila\" signifie \"danse\" en espagnol.<br>Donc la phrase complète est \"Mi hermana baila salsa\" qui signifie \"Ma soeur danse la salsa\".</html>"
                 );
 
         Question question4 = new Question("____ deportes son emocionantes. (Les sports sont excitants)",
@@ -47,7 +47,7 @@ public class GameSet {
                 new Reponse("Nuestros", false),
                 new Reponse("Sus", true),
                 new Reponse("Tu", false),
-                "\"Deportes\" est masculin pluriel, donc on utilise \"sus\" qui est l'adjectif possessif pour \"leurs\" sports. Donc la phrase complète est \"Sus deportes son emocionantes\" qui signifie \"Leurs sports sont excitants\"."
+                "<html>\"Deportes\" est masculin pluriel, donc on utilise \"sus\" qui est l'adjectif possessif pour \"leurs\" sports.<br>Donc la phrase complète est \"Sus deportes son emocionantes\" qui signifie \"Leurs sports sont excitants\".</html>"
                 );
 
         Question question5 = new Question("Ellos ____ en la playa. (Ils marchent sur la plage)",
@@ -55,7 +55,7 @@ public class GameSet {
                 new Reponse("Comen", false),
                 new Reponse("Corren", false),
                 new Reponse("Caminan", true),
-                "\"Caminan\" signifie \"marchent\" en espagnol. Donc la phrase complète est \"Ellos caminan en la playa\" qui signifie \"Ils marchent sur la plage\"."
+                "<html>\"Caminan\" signifie \"marchent\" en espagnol.<br>Donc la phrase complète est \"Ellos caminan en la playa\" qui signifie \"Ils marchent sur la plage\".</html>"
                 );
 
         setQuestions(question1);
