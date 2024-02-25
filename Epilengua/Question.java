@@ -5,11 +5,11 @@ public class Question {
 
     private Reponse[] reponses = new Reponse[4];
 
-    private String correcton;
+    private String explication;
 
     //Todo : ajouter attribut "explication" puis les ajouter aux JOptionPanes
 
-    public Question(String question, Reponse reponse1, Reponse reponse2, Reponse reponse3, Reponse reponse4) {
+    public Question(String question, Reponse reponse1, Reponse reponse2, Reponse reponse3, Reponse reponse4, String explication) {
         this.question = question;
 
         //Création des réponses :
@@ -17,6 +17,8 @@ public class Question {
         this.reponses[1] = reponse2;
         this.reponses[2] = reponse3;
         this.reponses[3] = reponse4;
+
+        this.explication = explication;
     }
 
     public Reponse getReponse(int index) {
@@ -25,6 +27,10 @@ public class Question {
 
     public void setReponse(){
 
+    }
+
+    public String getExplication() {
+        return explication;
     }
 
     public String getQuestion() {
