@@ -23,11 +23,11 @@ public class FinalFrame extends TemplateFrames{
         JLabel titreLabel = new JLabel("Votre Score :");
         titreLabel.setForeground(Color.WHITE);
         titreLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        titreLabel.setBounds(240, 70, 200, 30);
-        JLabel labelScore = new JLabel(String.valueOf(MainFrameGame.getScore()));
+        titreLabel.setBounds(235, 70, 200, 30);
+        JLabel labelScore = new JLabel(String.valueOf(MainFrameGame.getScore()) + " / 5");
         labelScore.setForeground(Color.WHITE);
         labelScore.setFont(new Font("Arial", Font.BOLD, 20));
-        labelScore.setBounds(290, 110, 100, 30);
+        labelScore.setBounds(280, 110, 100, 30);
 
         lastPanel.add(titreLabel);
         lastPanel.add(labelScore);
