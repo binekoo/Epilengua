@@ -106,7 +106,12 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
                 score++;
                 tjrLaMemeQuestion = false;
             }
+
+            //ImageIcon icon = new ImageIcon(getClass().getResource("/images/validate.png"));
+
+            //choix = JOptionPane.showConfirmDialog(mainFrame,"Excellent travail ! " + GameSet.questions[numeroQuestion].getExplication(), "Bien joué !", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, icon);
             choix = JOptionPane.showConfirmDialog(mainFrame,"Excellent travail ! " + GameSet.questions[numeroQuestion].getExplication(), "Bien joué !", JOptionPane.OK_CANCEL_OPTION);
+
 
                 if(choix == JOptionPane.OK_OPTION) {
                     if(numeroQuestion == 4){
@@ -122,7 +127,7 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
         } else {
             choix2 = JOptionPane.showConfirmDialog(mainFrame,"Oups, mauvaise réponse... Veuillez réessayer", "Oups :(", JOptionPane.OK_CANCEL_OPTION);
             compteur--;
-            score--;
+            if(!tjrLaMemeQuestion){score--;}
             tjrLaMemeQuestion = true;
             erreur = true;
             if(choix == JOptionPane.OK_OPTION){
