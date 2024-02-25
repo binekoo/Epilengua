@@ -106,7 +106,7 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
                 score++;
                 tjrLaMemeQuestion = false;
             }
-            choix = JOptionPane.showConfirmDialog(mainFrame,"Excellent travail ! Maintenant essayez la question suivante !", "Bien joué !", JOptionPane.OK_CANCEL_OPTION);
+            choix = JOptionPane.showConfirmDialog(mainFrame,"Excellent travail ! " + GameSet.questions[numeroQuestion].getExplication(), "Bien joué !", JOptionPane.OK_CANCEL_OPTION);
 
                 if(choix == JOptionPane.OK_OPTION) {
                     if(numeroQuestion == 4){

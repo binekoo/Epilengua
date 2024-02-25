@@ -18,35 +18,45 @@ public class GameSet {
 
 
     public GameSet(){
-        Question question1 = new Question("___ libro es interesante. (Le livre est intéressant)",
+        Question question1 = new Question("___ gato es muy lindo. (Le chat est très mignon)",
                 new Reponse("Mi", false),
                 new Reponse("Su", false),
                 new Reponse("El", true),
-                new Reponse("Tu", false));
+                new Reponse("Nuestro", false),
+                "En espagnol, \"gato\" est masculin, donc on utilise l'article masculin \"el\". Donc la phrase correcte est \"El gato es muy lindo\" qui signifie \"Le chat est très mignon\"."
+        );
 
-        Question question2 = new Question("Voy a ___ al parque mañana. (Je vais visiter le parc demain)",
-                new Reponse("Jugar", false),
-                new Reponse("Comer", false),
-                new Reponse("Correr", false),
-                new Reponse("Visitar", true));
+        Question question2 = new Question("____ libros son interesantes. (Les livres sont intéressants)",
+                new Reponse("Mi", false),
+                new Reponse("Tus", false),
+                new Reponse("Sus", false),
+                new Reponse("Mis", true),
+                "\"Libros\" est masculin pluriel, donc on utilise \"mis\" qui est l'adjectif possessif pour \"mes\" livres. Donc la phrase complète est \"Mis libros son interesantes\" qui signifie \"Mes livres sont intéressants\"."
+        );
 
-        Question question3 = new Question("No puedo encontrar mis ___ . (Je ne trouve pas mes clés.)",
-                new Reponse("Amigos", false),
-                new Reponse("Llaves", true),
-                new Reponse("Zapatos", false),
-                new Reponse("Perro", false));
-
-        Question question4 = new Question("Ella siempre ___ tarde a la escuela. (Elle est toujours en retard à l'école)",
+        Question question3 = new Question("Mi hermana ____ bailar salsa. (Ma soeur aime danser la salsa)",
+                new Reponse("Gusta", false),
+                new Reponse("Quiero", false),
+                new Reponse("Baila", true),
                 new Reponse("Come", false),
-                new Reponse("Llega", true),
-                new Reponse("Estudia", false),
-                new Reponse("Baila", false));
+                "\"Baila\" signifie \"danse\" en espagnol. Donc la phrase complète est \"Mi hermana baila salsa\" qui signifie \"Ma soeur danse la salsa\"."
+                );
 
-        Question question5 = new Question(" ___ café por la mañana. (Je bois du café le matin)",
-                new Reponse("Bebo", true),
-                new Reponse("Como", false),
-                new Reponse("Juego", false),
-                new Reponse("Bailo", false));
+        Question question4 = new Question("____ deportes son emocionantes. (Les sports sont excitants)",
+                new Reponse("Mis", false),
+                new Reponse("Nuestros", false),
+                new Reponse("Sus", true),
+                new Reponse("Tu", false),
+                "\"Deportes\" est masculin pluriel, donc on utilise \"sus\" qui est l'adjectif possessif pour \"leurs\" sports. Donc la phrase complète est \"Sus deportes son emocionantes\" qui signifie \"Leurs sports sont excitants\"."
+                );
+
+        Question question5 = new Question("Ellos ____ en la playa. (Ils marchent sur la plage)",
+                new Reponse("Bailan", false),
+                new Reponse("Comen", false),
+                new Reponse("Corren", false),
+                new Reponse("Caminan", true),
+                "\"Caminan\" signifie \"marchent\" en espagnol. Donc la phrase complète est \"Ellos caminan en la playa\" qui signifie \"Ils marchent sur la plage\"."
+                );
 
         setQuestions(question1);
         setQuestions(question2);
