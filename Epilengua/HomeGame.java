@@ -23,11 +23,16 @@ public class HomeGame extends TemplateFrames implements ActionListener{
         mainPanel.setLayout(null);
 
         //TODO : ajouter logo
+        //erreur l'image hola est tjrs null
 
-//        ImageIcon logo = new ImageIcon("/ressources/hola.png");
-//        JLabel logoLabel = new JLabel(logo);
-//        logoLabel.setBounds(10,8,70,70);
-//        mainPanel.add(logoLabel);
+        java.net.URL resourceUrl = getClass().getResource("ressources/hola.png");
+        System.out.println("Resource URL: " + resourceUrl);
+
+        ImageIcon logo = new ImageIcon(resourceUrl);
+
+        JLabel logoLabel = new JLabel(logo);
+        logoLabel.setBounds(10, 8, 70, 70);
+        mainPanel.add(logoLabel);
 
         JPanel titlePanel = new RoundedPanel(50, 50);
         titlePanel.setBounds(100, 80, 700, 100);
@@ -45,6 +50,7 @@ public class HomeGame extends TemplateFrames implements ActionListener{
         startButton.setBounds(360, 350, 150, 50);
         startButton.addActionListener(this);
         mainPanel.add(startButton);
+        setVisible(true);
     }
 
     @Override

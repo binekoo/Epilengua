@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 public class MainFrameGame extends TemplateFrames implements ActionListener {
     private TemplateFrames mainFrame;
 
+    private static boolean tjrLaMemeQuestion = true;
+
     private JButton bouton1;
     private JButton bouton2;
     private JButton bouton3;
@@ -26,6 +28,10 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
     private static int score = 0;
 
     private boolean erreur = false;
+
+    public static int getScore() {
+        return score;
+    }
 
     private JPanel mainPanel = new JPanel();
     public MainFrameGame(){
@@ -61,6 +67,7 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
             numeroQuestion = i;
         }
         compteur++;
+//        erreur = false;
 
         questionLabel.setBorder(new EmptyBorder(30, 20, 0, 0));
         questionLabel.setForeground(Color.WHITE);
@@ -75,6 +82,10 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
         mainPanel.add(bouton2);
         mainPanel.add(bouton3);
         mainPanel.add(bouton4);
+
+        if(!tjrLaMemeQuestion){
+            erreur = false;
+        }
     }
 
     @Override
@@ -90,26 +101,29 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
             }
         }
 
-        //Todo : faire un if sur la Réponse récupérée pour savoir si elle est bonne ou pas et adapter la JOptionPane !
         if(bonneReponse){
             if(!erreur){
                 score++;
+                tjrLaMemeQuestion = false;
             }
             choix = JOptionPane.showConfirmDialog(mainFrame,"Excellent travail ! Maintenant essayez la question suivante !", "Bien joué !", JOptionPane.OK_CANCEL_OPTION);
 
-                if(choix == JOptionPane.OK_OPTION) {
-                    if(numeroQuestion == 4){
+            if(choix == JOptionPane.OK_OPTION) {
+                if(numeroQuestion == 4){
                     mainFrame.dispose();
                     FinalFrame finalFrame = new FinalFrame();
                     return;
-                    } else {
-                        mainFrame.dispose();
-                        mainFrame = new MainFrameGame();
-                    }
+                } else {
+                    mainFrame.dispose();
+                    mainFrame = new MainFrameGame();
+                    tjrLaMemeQuestion = false;
                 }
+            }
         } else {
             choix2 = JOptionPane.showConfirmDialog(mainFrame,"Oups, mauvaise réponse... Veuillez réessayer", "Oups :(", JOptionPane.OK_CANCEL_OPTION);
             compteur--;
+            score--;
+            tjrLaMemeQuestion = true;
             erreur = true;
             if(choix == JOptionPane.OK_OPTION){
                 mainFrame.dispose();
@@ -117,10 +131,8 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
             }
 
         }
-
         //TODO : ajouter le calcul du score
         //TODO : ajouter les icones aux JOptionPanes
         System.out.println("score " + score);
-
     }
 }
