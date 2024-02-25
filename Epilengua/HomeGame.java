@@ -24,11 +24,7 @@ public class HomeGame extends TemplateFrames implements ActionListener{
 
         //TODO : ajouter logo
         //erreur l'image hola est tjrs null
-
-        java.net.URL resourceUrl = getClass().getResource("ressources/hola.png");
-        System.out.println("Resource URL: " + resourceUrl);
-
-        ImageIcon logo = new ImageIcon(resourceUrl);
+        ImageIcon logo = new ImageIcon(getClass().getResource("ressources/hola.png"));
 
         JLabel logoLabel = new JLabel(logo);
         logoLabel.setBounds(10, 8, 70, 70);
