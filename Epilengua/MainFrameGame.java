@@ -126,6 +126,7 @@ public class MainFrameGame extends TemplateFrames implements ActionListener {
                 }
         } else {
             choix2 = JOptionPane.showConfirmDialog(mainFrame,"Oups, mauvaise réponse... Veuillez réessayer", "Oups :(", JOptionPane.OK_CANCEL_OPTION);
+
             compteur--;
             if(!tjrLaMemeQuestion){score--;}
             tjrLaMemeQuestion = true;

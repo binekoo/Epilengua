@@ -26,7 +26,7 @@ public class GameSet {
                 "<html>En espagnol, \"gato\" est masculin, donc on utilise l'article masculin \"el\".<br>Donc la phrase correcte est \"El gato es muy lindo\" qui signifie \"Le chat est très mignon\".</html>"
         );
 
-        Question question2 = new Question("____ libros son interesantes. (Les livres sont intéressants)",
+        Question question2 = new Question("____ libros son interesantes. (Mes livres sont intéressants)",
                 new Reponse("Mi", false),
                 new Reponse("Tus", false),
                 new Reponse("Sus", false),
